@@ -32,7 +32,7 @@ la salida se realiza a través del monitor serial o mediante retroalimentación 
 ## Planteamiento del Problema
 
 El acceso a la información escrita sigue siendo un reto para personas con discapacidad visual, especialmente en contextos donde las soluciones tecnológicas son costosas o difíciles de implementar.  
-El objetivo es **mejorar el acceso a la escritura** mediante el desarrollo de un teclado Braille electrónico accesible y funcional, sin depender de pantalla LCD[1].
+El objetivo es **mejorar el acceso a la escritura** mediante el desarrollo de un teclado Braille electrónico accesible y funcional [1].
 
 ---
 
