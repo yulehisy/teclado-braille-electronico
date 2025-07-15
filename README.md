@@ -7,80 +7,123 @@ Proyecto integrador de Diseño Electrónico — Curso Integrador I
 
 ## ESTRUCTURA DEL PROYECTO
 
-## Descripción
+## Descripción General
 
-Este proyecto consiste en el diseño y construcción de un teclado Braille electrónico de bajo costo, orientado a personas con discapacidad visual. El objetivo es permitirles escribir de forma autónoma mediante un sistema accesible, económico y fácil de replicar, utilizando tecnologías abiertas como Arduino.
+Este proyecto consiste en el diseño y construcción de un **teclado Braille electrónico de bajo costo** que permite a personas con discapacidad visual escribir de manera autónoma. El sistema utiliza pulsadores para ingresar combinaciones Braille, procesadas por un microcontrolador Arduino UNO.  
+la salida se realiza a través del monitor serial o mediante retroalimentación háptica/auditiva opcional[1].
 
-## Tabla de Contenidos
+---
+
+## Índice
 
 - [Planteamiento del Problema](#planteamiento-del-problema)
 - [Objetivos](#objetivos)
 - [Justificación](#justificación)
 - [Marco Teórico](#marco-teórico)
-- [Arquitectura del Sistema](#arquitectura-del-sistema)
-- [Componentes](#componentes)
-- [Instalación y Uso](#instalación-y-uso)
-- [Pruebas y Validación](#pruebas-y-validación)
-- [Contribuciones](#contribuciones)
-- [Licencia](#licencia)
+- [Metodología](#metodología)
+- [Componentes Utilizados](#componentes-utilizados)
+- [Funcionamiento](#funcionamiento)
+- [Resultados y Pruebas](#resultados-y-pruebas)
+- [Conclusiones y Mejoras Futuras](#conclusiones-y-mejoras-futuras)
+- [Créditos](#créditos)
+
+---
 
 ## Planteamiento del Problema
 
-El acceso a la información escrita es un reto para personas con discapacidad visual, especialmente por el alto costo y la complejidad de los dispositivos comerciales. Este proyecto busca desarrollar una alternativa funcional y asequible, centrada en el contexto educativo y social de países en vías de desarrollo.
+El acceso a la información escrita sigue siendo un reto para personas con discapacidad visual, especialmente en contextos donde las soluciones tecnológicas son costosas o difíciles de implementar.  
+El objetivo es **mejorar el acceso a la escritura** mediante el desarrollo de un teclado Braille electrónico accesible y funcional, sin depender de pantalla LCD[1].
+
+---
 
 ## Objetivos
 
-- **General:** Diseñar y construir un sistema Braille electrónico de bajo costo que permita a personas con discapacidad visual escribir de forma autónoma.
-- **Específicos:**
-  - Analizar costos y disponibilidad de componentes.
-  - Evaluar el desempeño temporal y la tasa de errores del prototipo.
-  - Optimizar la precisión y la confiabilidad del sistema.
+**Objetivo General:**  
+Diseñar y construir un sistema Braille electrónico de bajo costo que permita a personas con discapacidad visual escribir de forma autónoma[1].
+
+**Objetivos Específicos:**  
+- Analizar el costo y disponibilidad de los componentes electrónicos y materiales empleados.
+- Evaluar el desempeño temporal del prototipo, midiendo el tiempo de respuesta ante la pulsación de teclas.
+- Optimizar la precisión y sincronización en la activación de los pines Braille[1].
+
+---
 
 ## Justificación
 
-El proyecto promueve la inclusión social y educativa, facilitando la autonomía y la comunicación escrita de personas con discapacidad visual. Su bajo costo y facilidad de replicación lo hacen ideal para contextos de bajos recursos.
+El proyecto responde a la necesidad de promover la **inclusión social y educativa** de las personas con discapacidad visual, facilitando su acceso a la escritura mediante un sistema accesible y económico.  
+Su bajo costo permite la masificación y adopción en contextos educativos y comunitarios con recursos limitados[1].
+
+---
 
 ## Marco Teórico
 
-El sistema Braille electrónico utiliza pulsadores que representan los seis puntos del código Braille, conectados a un microcontrolador Arduino UNO. Al presionar una combinación, el sistema traduce la señal a un carácter alfabético, que se muestra en una pantalla LCD 16x2. Se incorpora retroalimentación háptica y/o auditiva para mejorar la experiencia del usuario.
+- **Braille:** Sistema de escritura táctil que utiliza combinaciones de puntos en relieve para representar letras, números y símbolos.
+- **Teclado Braille Electrónico:** Dispositivo que permite la entrada de caracteres Braille mediante pulsadores electrónicos, traduciendo las combinaciones en texto digital.
+- **Arduino UNO:** Microcontrolador utilizado para procesar las señales de los pulsadores y controlar la salida.
+- **Pulsadores y Resistencias:** Cada pulsador representa uno de los seis puntos Braille, más un pulsador adicional para el espacio. Las resistencias de 220Ω se emplean como pull-down para asegurar la correcta lectura de las señales digitales.
+- **Retroalimentación háptica/auditiva:** Opcional, mejora la experiencia del usuario al confirmar cada acción realizada[1].
 
-## Arquitectura del Sistema
+---
 
-- **Microcontrolador:** Arduino UNO
-- **Entradas:** 6 pulsadores (puntos Braille) + 1 pulsador de espacio
-- **Salidas:** Pantalla LCD 16x2, zumbador/vibrador para retroalimentación
-- **Alimentación:** 5V DC
+## Metodología
 
-![Diagrama de conexión](docs/diagramas/diagrama_circuito.png)
+1. **Análisis del sistema Braille:** Identificación de patrones válidos.
+2. **Diseño electrónico:** Circuito con Arduino UNO, 6 pulsadores para puntos Braille y 1 para espacio, resistencias pull-down.
+3. **Programación:** Código en Arduino IDE para reconocimiento y traducción de combinaciones Braille.
+4. **Simulación:** Pruebas virtuales en Tinkercad para validar el diseño.
+5. **Montaje:** Ensamblaje en protoboard y pruebas físicas.
+6. **Validación:** Medición de tiempo de respuesta, tasa de error y facilidad de uso[1].
 
-## Componentes
+---
 
-- Arduino UNO
-- Pulsadores x7
-- Resistencias 220Ω x7 (pull-down)
-- Pantalla LCD 16x2
-- Zumbador o motor vibrador (opcional)
-- Protoboard y cables
+## Componentes Utilizados
 
-Ver el archivo [`hardware/lista_componentes.md`](hardware/lista_componentes.md) para el detalle completo.
+| Componente               | Cantidad | Descripción / Función                       |
+|--------------------------|----------|---------------------------------------------|
+| Arduino UNO              | 1        | Procesamiento y control del sistema         |
+| Pulsadores               | 7        | Entrada de datos (6 puntos + espacio)       |
+| Resistencias 220Ω        | 7        | Pull-down para evitar lecturas erróneas     |
+| Protoboard               | 1        | Montaje temporal del circuito               |
+| Cables jumper            | varios   | Conexiones eléctricas                       |
+| (Opcional) Buzzer/Vibrador | 1      | Retroalimentación sonora/háptica            |
 
-## Instalación y Uso
+---
 
-1. **Montaje:** Siga los diagramas en `docs/diagramas/` para conectar los componentes.
-2. **Carga de código:** Suba el archivo `software/arduino/braille_keyboard.ino` al Arduino usando el IDE de Arduino.
-3. **Pruebas:** Realice las pruebas siguiendo las instrucciones en `test/`.
-4. **Uso:** Presione las combinaciones de pulsadores para escribir en Braille; el carácter aparecerá en la pantalla LCD y se emitirá una señal de confirmación.
+## Funcionamiento
 
-## Pruebas y Validación
+1. **Entrada:** El usuario presiona una combinación de pulsadores correspondiente a un carácter Braille.
+2. **Procesamiento:** El Arduino detecta la combinación y determina el carácter.
+3. **Salida:** El carácter se muestra en el monitor serial de la computadora o se comunica mediante retroalimentación sonora/háptica.
+4. **Espacio:** Un pulsador adicional permite insertar espacios entre palabras[1].
 
-- Se recomienda medir el tiempo de respuesta y la tasa de errores.
-- Comparar los resultados con teclados Braille comerciales.
-- Documentar los resultados en la carpeta `test/`.
+---
 
-## Contribuciones
+## Resultados y Pruebas
 
-Las contribuciones son bienvenidas. Por favor, abra un issue o un pull request para sugerencias o mejoras.
+- Reconocimiento preciso de las combinaciones Braille estándar (26 letras y espacio).
+- Tiempo de respuesta promedio: **0.15 segundos** por pulsación.
+- Tasa de error: **Inferior al 2%** durante pruebas de 100 ciclos.
+- Simulación y montaje físico muestran resultados similares, validando la robustez del diseño.
+- Mejoras implementadas: filtrado de señales y refuerzo del encofrado para mayor estabilidad y durabilidad[1].
 
-## Licencia
+---
 
-Este proyecto está bajo la licencia MIT. Consulte el archivo [`LICENSE`](LICENSE) para más detalles.
+## Conclusiones y Mejoras Futuras
+
+- El prototipo cumple con los objetivos de accesibilidad, bajo costo y facilidad de uso.
+- Futuras mejoras: agregar retroalimentación háptica/auditiva y explorar conectividad inalámbrica.
+- El sistema es replicable y adaptable a contextos educativos, promoviendo la autonomía de personas con discapacidad visual[1].
+
+---
+
+## Créditos
+
+**Alumnas:**  
+- Rodriguez Vega Yulehisy Lizbeth  
+- Ana Laurente Cochachi
+
+**Profesor:**  
+- Motta Zorrilla, Bryan
+
+**Curso:**  
+- Curso Integrador I: Diseño Electrónico
